@@ -122,6 +122,7 @@ input[placeholder]::placeholder {
 input {
 	border: 0.063rem solid var(--color-grey);
 	padding: 0 1.5rem;
+	font-size: var(--16px);
 }
 
 h1 {
