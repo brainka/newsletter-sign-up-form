@@ -14,6 +14,7 @@
 
 :root {
 	--color-primary-tomato: hsl(4, 100%, 67%);
+	--color-primary-tomato-background: hsl(4, 100%, 67%, 25%);
 	--color-dark-slate-grey: hsl(234, 29%, 20%);
 	--color-charcoal-grey: hsl(235, 18%, 26%);
 	--color-grey: hsl(231, 7%, 60%);
@@ -42,6 +43,7 @@ html {
 body {
 	height: 100vh;
 	font-family: 'Roboto';
+	color: var(--color-dark-slate-grey);
 }
 
 main {
@@ -124,6 +126,7 @@ input {
 
 h1 {
 	font-size: clamp(2.5rem, 2.2143rem + 1.4286vi, 3.5rem);
+	color: var(--color-dark-slate-grey);
 }
 
 img {
@@ -156,6 +159,41 @@ form {
 	color: var(--color-primary-tomato);
 }
 
+.error-message-input {
+	color: var(--color-primary-tomato);
+	background: var(--color-primary-tomato-background);
+	border: 0.063rem solid var(--color-primary-tomato);
+}
+
+/* success message */
+.success-page-container {
+	display: flex;
+	flex-direction: column;
+	margin-block-start: 9.313rem;
+	gap: 2.5rem;
+	padding: 0 1.5em;
+}
+
+.success-page-container > img {
+	width: 4rem;
+}
+
+.success-message-container {
+	display: flex;
+	flex-direction: column;
+	gap: 16.438rem;
+}
+
+.success-message > p {
+	line-height: 1.5;
+}
+
+.success-message {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
 @media screen and (min-width: 48em) {
 	body {
 		display: flex;
@@ -167,19 +205,55 @@ form {
 
 	main {
 		border-radius: 2.25rem;
-		overflow: hidden;
+		/* overflow: hidden; */
 		background-color: var(--color-white);
 		width: 100%;
-		max-width: 58rem;
+		height: 100%;
+		max-block-size: 40.063rem;
+		max-inline-size: 58rem;
 		padding: 1.5rem;
 	}
 
 	.flex-row-desktop {
 		flex-direction: row-reverse;
+		gap: 4em;
 	}
 
 	main > img {
 		object-fit: cover;
 		border-radius: 1rem;
+		max-inline-size: 45.5%;
+		object-position: -13.5rem;
 	}
+
+	.info-container {
+		align-self: center;
+		padding: unset;
+		padding-left: 2.5rem;
+	}
+
+	.success-message-main {
+		max-inline-size: 31.5rem;
+		max-block-size: 32.5rem;
+		/* padding: 0 4rem; */
+		padding: unset;
+	}
+
+	.success-page-container {
+		/* padding-block-start: 3rem; */
+		margin-block-start: unset;
+		padding: 3rem 4rem 4rem 4rem;
+	}
+
+	.success-message-container {
+		gap: 2.5rem;
+	}
+
+	.success-message {
+		/* gap: 1.5rem; */
+	}
+}
+
+.hidden {
+	display: none;
 }
