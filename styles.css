@@ -264,7 +264,7 @@ span {
 }
 
 @media (hover: hover) {
-	button {
+	button:hover {
 		background: linear-gradient(#ff6a3a, #ff527b);
 		box-shadow: #ff527b;
 	}
