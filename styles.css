@@ -83,10 +83,10 @@ input {
 	cursor: pointer;
 }
 
-button:hover {
+/* button:hover {
 	background: linear-gradient(#ff6a3a, #ff527b);
 	box-shadow: #ff527b;
-}
+} */
 
 .updates {
 	display: flex;
@@ -261,4 +261,11 @@ span {
 
 .hidden {
 	display: none;
+}
+
+@media (hover: hover) {
+	button {
+		background: linear-gradient(#ff6a3a, #ff527b);
+		box-shadow: #ff527b;
+	}
 }
