@@ -141,6 +141,10 @@ form {
 	gap: 1.5rem;
 }
 
+span {
+	font-weight: 700;
+}
+
 .form-container {
 	display: flex;
 	flex-direction: column;

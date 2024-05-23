@@ -7,9 +7,7 @@ const successPageElement = document.querySelector('.success-page-container');
 const mainElement = document.querySelector('main');
 const dismissButtonElement = document.querySelector('#dismiss-button');
 
-const fetchLocalStorage = localStorage.getItem('subscribed');
-
-console.log(fetchLocalStorage);
+const fetchUserLocalStorage = JSON.parse(localStorage.getItem('user')) || {};
 
 function handleButtonClick(event) {
 	event.preventDefault();
@@ -34,8 +32,17 @@ function handleButtonClick(event) {
 		successPageElement.classList.remove('hidden');
 		successPageElement.removeAttribute('aria-hidden');
 		mainElement.classList.add('success-message-main');
-		localStorage.setItem('subscribed', 'true');
+		document.querySelector('#email-address').textContent =
+			emailInputValue + '.';
 		emailAddressInputElement.value = '';
+
+		localStorage.setItem(
+			'user',
+			JSON.stringify({
+				email: emailInputValue,
+				subscribed: true,
+			})
+		);
 	}
 }
 
@@ -49,9 +56,19 @@ function handleDismissButtonClick(event) {
 	infoContainerElement.classList.remove('hidden', 'aria-hidden="true"');
 	mainElement.classList.remove('success-message-main');
 
-	localStorage.removeItem('subscribed');
+	localStorage.removeItem('user');
 }
 
 dismissButtonElement.addEventListener('click', handleDismissButtonClick);
 
 //utilise local storage on page refresh to keep the 'thanks for subscribing message'
+if (fetchUserLocalStorage?.subscribed) {
+	mainImageElement.classList.add('hidden', 'aria-hidden="true"');
+	infoContainerElement.classList.add('hidden', 'aria-hidden="true"');
+	successPageElement.classList.remove('hidden');
+	successPageElement.removeAttribute('aria-hidden');
+	mainElement.classList.add('success-message-main');
+
+	document.querySelector('#email-address').textContent =
+		fetchUserLocalStorage.email + '.';
+}
